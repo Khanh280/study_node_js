@@ -1,0 +1,29 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khanh280/study_node_js.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "khanhkq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khanh280/study_node_js/issues"
+  },
+  "homepage": "https://github.com/Khanh280/study_node_js#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
