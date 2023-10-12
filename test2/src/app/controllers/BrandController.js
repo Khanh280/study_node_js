@@ -4,7 +4,7 @@ const {multipleSqlToObject} = require('../../utils/mongoose')
 class BrandController {
     index(req, res, next) {
         db.mysqlConnection.query(
-            'SELECT * FROM `brand`', (err, results, fields) => {
+            'SELECT * FROM `brand` ORDER BY id DESC', (err, results, fields) => {
                 console.log(results);
                 console.log(fields);
                 res.render('brandList', {brand: results})

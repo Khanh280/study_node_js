@@ -4,7 +4,7 @@ const Product = new Schema({
     name: {
         type: String,
         required: [true, "Tên sản phẩm không được để trống"],
-        unique: [true,"San pham da trung"]
+        unique: [true, "San pham da trung"]
     },
     description: {
         type: String,
@@ -19,10 +19,8 @@ const Product = new Schema({
         type: String,
         required: [true, "Ảnh không được để trống"]
     },
-    brand: {
-        type: String,
-        required: [true, "Brand không được để trống"]
-    }
+    brands: {type: Schema.Types.ObjectId, ref: 'brands'},// ref lien ket  sử dụng trong schema của một trường để xác định tên của bảng (collection) trong MongoDB mà trường đó tham chiếu đến.
+    types:  {type: Schema.Types.ObjectId, ref: 'types'}
 }, {
     timestamps: true
 })

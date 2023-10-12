@@ -1,9 +1,9 @@
 <div class="container">
     <div align="center" class="mt-2 d-flex">
-        <form method="get" action="/product/search">
-            <input type="text" name="name">
-            <button class="btn btn-primary">Search</button>
-        </form>
+<!--        <form method="get" action="/product/search">-->
+<!--            <input type="text" name="name">-->
+<!--            <button class="btn btn-primary">Search</button>-->
+<!--        </form>-->
         <a href="/product/create" class="btn btn-primary">Create Product</a>
     </div>
     <table class="table table-hover">
@@ -23,7 +23,7 @@
                 </td>
                 <td>{{this.name}}</td>
                 <td>{{this.price}}</td>
-                <td>{{this.brand}}</td>
+                <td>{{this.brands.name}}</td>
                 <td>
                     <a href="/product/{{this.id}}" class="btn btn-info">Detail</a>
                     <a href="/product/edit/{{this._id}}" class="btn btn-warning">Update</a>

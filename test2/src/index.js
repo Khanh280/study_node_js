@@ -12,13 +12,7 @@ const db = require('../src/config/db')
 app.use(express.static(path.join(__dirname, 'public/image')));
 db.connect()
 // mysqlConnection den mysql
-db.mysqlConnection.query(
-    'SELECT * FROM `brand`',
-    function (err, results, fields) {
-        console.log(results);
-        console.log(fields);
-    }
-);
+
 app.use(methodOverride('_method'))//ho tro PUT, PATH, DELETE
 
 app.use(express.urlencoded({
