@@ -2,8 +2,9 @@ const Product = require('../models/Product')
 const Brand = require('../models/Brand')
 const User = require('../models/User')
 const jwt = require('jsonwebtoken');
-
 const {multipleMongooseToObject, mongooseToObject} = require('../../utils/mongoose')
+
+const secretKey = 'tek4vn';
 
 
 class ProductController {
@@ -16,6 +17,17 @@ class ProductController {
                 res.render('home', {
                     product: multipleMongooseToObject(product)
                 })
+                const token = req.cookies.token
+                console.log(token)
+                const generateToken = jwt.decode(token, secretKey)
+                User.findOne({username: generateToken.username})
+                    .then(user => {
+                        if(generateToken.username === user.username && generateToken.id === user.id){
+                            console.log("Authenticate Success")
+                        }else {
+                            console.log("Authenticate Fail")
+                        }
+                    })
             })
             .catch((err) =>
                 console.log('JOIN  FAIL ' + err)
@@ -172,20 +184,22 @@ class ProductController {
                     id: user._id,
                     username: user.username
                 };
-                const secretKey = 'tek4vn';
                 const option = {expiresIn: '1d'};
                 const token = jwt.sign(payload, secretKey, option);
                 console.log(token);
                 const decoded = jwt.verify(token, secretKey);
                 console.log(decoded);
+
                 const nameCookie = 'token';
                 //valueCookie: giá trị sẽ lưu vào name cookie, ở đây chúng ta sẽ sẽ lưu giá trị token được tạo bởi jwt
                 const valueCookie = token;
                 //timeExpiresIn: thời gian sống của cookie, chúng ta sẽ lưu thời gian của cookie bằng với thời gian của mã token được tạo bởi jwt nhé
                 // vì thời gian của cookie tính bằng ms nên chúng ta phải quy đổi lại nhé (60 * 60 * 1000 * 24) cú pháp đổi ms -> 1 ngày
                 // ở đây chúng ta tạo token là 3650 ngày nên cần nhân thêm 3650
-                const timeExpiresIn = 60 * 60 * 1000 * 24 * 3650;
-                res.cookie(nameCookie, valueCookie, { maxAge: timeExpiresIn });
+                const timeExpiresIn = 60 * 60 * 1000;
+                res.cookie(nameCookie, valueCookie, {maxAge: timeExpiresIn})
+                const cookie = req.cookies.token
+                console.log(cookie)
                 res.send("Token: " + token)
             })
             .catch(err =>

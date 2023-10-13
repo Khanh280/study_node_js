@@ -7,6 +7,7 @@ const app = express();
 const port = 3001;
 const route = require('./routes')
 const db = require('../src/config/db')
+const cookieParser = require('cookie-parser');
 
 // Thiết lập tĩnh thư mục 'uploads' để truy cập hình ảnh đã tải lên
 app.use(express.static(path.join(__dirname, 'public/image')));
@@ -19,6 +20,7 @@ app.use(express.urlencoded({
     extended: true
 }))// middleware dung de nhan du lieu tu form data
 app.use(express.json())
+app.use(cookieParser());
 
 app.use(morgan('combined'))
 
