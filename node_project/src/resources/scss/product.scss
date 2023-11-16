@@ -1,0 +1,17 @@
+.sidebarProduct {
+  box-shadow: 0 5px 10px rgba(128, 128, 128, 0.79);
+  border-radius: 10px;
+  min-height: 5rem;
+  padding: 1rem;
+}
+
+.productNavigate {
+  list-style: none;
+  font-weight: 500;
+  padding: 0;
+  margin-top: 0;
+}
+
+.productNavigate li:hover a {
+  color: coral;
+}

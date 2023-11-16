@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-2 listNavigate">
+        <ul class="">
+            <li>Create Product</li>
+            <li>List Product</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <div class="col-10">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Types</th>
+                <th>Brand</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each product}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.producttypes.name}}</td>
+                    <td>{{this.brands.name}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+
+</script>

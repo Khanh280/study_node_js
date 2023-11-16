@@ -1,0 +1,66 @@
+<div class="loginForm mt-3">
+    <div class="col-5">
+        <div class="row" align="center"><h1>Register Form</h1></div>
+        <form method="post" action="/user/register">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp" value="{{user.name}}">
+                {{#if error.name}}
+                    <p style="color: red">{{error.name}}</p>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Birthday</label>
+                <input type="date" name="birthday" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp" value="{{user.birthday}}">
+                {{#if error.birthday}}
+                    <p style="color: red">{{error.birthday}}</p>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Phone</label>
+                <input type="text" name="phone" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp" value="{{user.phone}}">
+                {{#if error.phone}}
+                    <p style="color: red">{{error.phone}}</p>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Address</label>
+                <input type="text" name="address" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp" value="{{user.address}}">
+                {{#if error.address}}
+                    <p style="color: red">{{error.address}}</p>
+                {{/if}}
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp" value="{{user.username}}">
+                {{#if error.username}}
+                    <p style="color: red">{{error.username}}</p>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                {{#if error.password}}
+                    <p style="color: red">{{error.password}}</p>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+                <input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword2">
+                {{#if confirmPassword}}
+                    <p style="color: red">{{confirmPassword}}</p>
+                {{/if}}
+            </div>
+            <div align="center">
+                <a href="/login" type="submit" class="btn btn-primary">Login</a>
+                <button type="submit" class="btn btn-dark">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
